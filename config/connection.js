@@ -7,10 +7,10 @@ if (process.env.burger_db_url) {
   connection = mysql.createConnection(process.env.burger_db_url);
 } else {
   connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'burger_db'
+    host: 'l7cup2om0gngra77.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+    user: 'lfj0ox2udfu0j46m',
+    password: 'kurdtobiz3fbobta',
+    database: 'n82s8uriig2iq71f'
   });
 };
 
