@@ -6,8 +6,12 @@
 
 <ul>
   {{#each burgers}}
-    {{#unless devour}}
-      {{> burgers/burger-block devour=true}}
+          {{#unless this.devoured}}
+          <div>
+            <form action"/burgers/{{this.id}}?method=PUT" method="POST">
+            <button type="submit" class="devoured">{{this.burger_name}}</button>
+            </form>
+          </div>
     {{/unless}}
   {{/each}}
 </ul>
