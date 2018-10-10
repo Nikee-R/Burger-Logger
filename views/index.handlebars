@@ -1,22 +1,17 @@
-<h1>Burgers!</h1>
+<div class="jumbotron"><h1>Burgers!</h1></div>
 
 <main>
 <div class="container">
   <div class="row">
     <div class="col sm 6">
       <h2>Eat the burgers!</h2>
-
-      <ul>
-        {{#each burgers}}
-          {{#unless this.devoured}}
-          <div>
-            <form action"/burgers/{{this.id}}?method=PUT" method="POST">
-            <button type="submit" class="devoured">{{this.burger_name}}</button>
-            </form>
-          </div>
-          {{/unless}}
-        {{/each}}
-      </ul>
+        <table>
+            {{#each burgers}}
+              {{#unless devoured}}
+            {{>burgers/burger-block}}
+              {{/unless}}
+            {{/each}}
+      </table>
       </div>
     </div>
 </div>
@@ -26,15 +21,13 @@
     <div class="col sm 6">
       <h2>Burgers that have been eaten!</h2>
 
-      <ul>
         {{#each burgers}}
-          {{#if this.devoured}}
-            <div class="devoured">
-              {{this.burger_name}}
+          {{#if devoured}}
+            <div>
+              {{id}}. {{burger_name}}
             </div>
           {{/if}}
         {{/each}}
-      </ul>
     </div>
   </div>
 </div>
@@ -42,8 +35,12 @@
 
 <div class="container">
 <h2>Add a Burger!</h2>
-<form action="/burgers" method="POST">
-  <input type="text" id="name" name="burger_name">
+<form class="create-form">
+  <div class="form-group">
+    <label for="name"></label>
+    <textarea id="name" name="burger_name" rows="2" cols="10" placeholder="Pick a burger!"></textarea>
+  </div>
+</form>
  <button type="submit" class="add">Add Burger</button>
 </form>
 </div>
