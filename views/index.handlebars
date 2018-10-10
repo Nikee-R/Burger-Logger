@@ -1,6 +1,5 @@
 
-<main>
-  <div class="jumbotron"><h1>Burgers!</h1></div>
+<div class="jumbotron"><h1>Burgers!</h1></div>
 
 <div class="container">
   <div class="row">
@@ -24,15 +23,12 @@
 
         {{#each burgers}}
           {{#if devoured}}
-            <div>
-              {{id}}. {{burger_name}}
-            </div>
+            <div>{{id}}. {{burger_name}}</div>
           {{/if}}
         {{/each}}
     </div>
   </div>
 </div>
-</main>
 
 <div class="container">
 <h2>Add a Burger!</h2>
