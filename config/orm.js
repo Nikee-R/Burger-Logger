@@ -50,6 +50,26 @@ var orm = {
       cb(result);
     });
   },
+  allOrder: function(table, orderCol, cb) {
+    var queryString = "SELECT * FROM " + table + " ORDER BY " + orderCol;
+
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      } 
+      cb(result);
+    });
+  },
+  allOrderDesc: function(table, orderCol, cb) {
+    var queryString = "SELECT * FROM " + table + " ORDER BY " + orderCol + " DESC";
+
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      cb(result);
+    });
+  },
   create: function(table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table;
 
