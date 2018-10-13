@@ -12,7 +12,7 @@ $(function() {
       data: newDevourState
     }).then(
       function() {
-        console.log("changed devoured to", devoured);
+        console.log("changed devoured to", true);
         // Reload the page to get the updated list
         location.reload();
       });
@@ -28,7 +28,6 @@ $(function() {
       var newBurger = {
         name: name
       };
-    }
 
     // Send the POST request.
     $.ajax("/api/burgers", {
@@ -40,6 +39,9 @@ $(function() {
         // Reload the page to get the updated list
         location.reload();
       });
+    } else {
+      $("[name=burger-name]").val("");
+    }
   });
 
 });
