@@ -2,42 +2,48 @@
 <div class="jumbotron"><h1>Burgers!</h1></div>
 
 <div class="container">
-  <div class="row">
-    <div class="col sm 6">
-      <h2>Eat the burgers!</h2>
-        <table>
-            {{#each burgers}}
-              {{#unless devoured}}
-            {{>burgers/burger-block}}
+    <div class="col sm 6 text-center" class="task">
+          <div class="row">
+            {{#each burger_data}}
+              {{#unless this.devoured}}
+              <div class="col sm 9 text-center">
+                <pre>{{this.id}}. {{this.burger_name}}</pre>
+              </div>
+
+              <div class="col sm 9 text-center">
+                <form method="POST" actions="/burgers/update?_method=PUT"
+                class="button-size">
+                  <input type="hidden" name="burger_id" type="text"
+                  value={{this.id}}>
+                  <br>
+                  <button type="submit" class="btn btn-default">
+                    Devour it!
+                  </button>
+                </form>
+              </div>
               {{/unless}}
             {{/each}}
-      </table>
       </div>
     </div>
-</div>
 
-<div class="container">
-  <div class="row">
-    <div class="col sm 6">
-      <h2>Burgers that have been eaten!</h2>
+    <div class="col sm 6 text-center" class="task">
+      {{#each burger_data}}
+        {{#if this.devoured}}
+          <input class="form-control" type="text" placeholder="{{this.id}}. {{this.burger_name}}" readonly>
+        {{/if}}
+      {{/each}}
+      </div>
 
-        {{#each burgers}}
-          {{#if devoured}}
-            <div>{{id}}. {{burger_name}}</div>
-          {{/if}}
-        {{/each}}
+    <div class="container">
+      <div class="row">
+        <div class="col sma 12 text-center enter_senction">
+          <form action="/burgers/create" method="POST">
+            <input type="text" name="burger_name" class="form-control"
+            value="" id="enter_text">
+            <button type="submit" class="btn btn-primary" id="text-enter-button">SUBMIT</button>
+          </form>
+          <p>Add a new burger!</p>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-
-<div class="container">
-<h2>Add a Burger!</h2>
-<form class="create-form">
-  <div class="form-group">
-    <label for="name"></label>
-    <textarea id="name" name="burger_name" rows="2" cols="10" placeholder="Pick a burger!"></textarea>
-  </div>
-</form>
- <button type="submit" class="add">Add Burger</button>
-</form>
 </div>
