@@ -6,8 +6,8 @@ var methodOverride = require("method-override");
 var exphbs = require("express-handlebars");
 
 //================ PORTS ================//
-
-var PORT = process.env.PORT || 3306;
+// Changed port so no conflict will occur with the db using port 3306.
+var PORT = process.env.PORT || 3000;
 
 //================ Express ================//
 

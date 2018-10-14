@@ -2,7 +2,8 @@
 var mysql = require("mysql");
 var connection;
 
-// Added for Heroku.
+// Added JAWSDB for Heroku deployment.
+// If it can't connect to JAWSDB it will connect to my local database.
 if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
